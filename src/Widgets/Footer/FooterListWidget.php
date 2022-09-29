@@ -1,12 +1,12 @@
 <?php
 
-namespace Glomer5\Widgets\Footer;
+namespace Glomer6\Widgets\Footer;
 
 use Ceres\Widgets\Helper\BaseWidget;
 
 class FooterListWidget extends BaseWidget
 {
-    protected $template = "Glomer5::Widgets.Footer.FooterListWidget";
+    protected $template = "Glomer6::Widgets.Footer.FooterListWidget";
 
     protected function getTemplateData($widgetSettings, $isPreview)
     {

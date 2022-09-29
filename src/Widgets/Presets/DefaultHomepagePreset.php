@@ -1,6 +1,6 @@
 <?php
 
-namespace Glomer5\Widgets\Presets;
+namespace Glomer6\Widgets\Presets;
 
 use Ceres\Config\CeresConfig;
 use Ceres\Widgets\Helper\Factories\PresetWidgetFactory;
@@ -33,7 +33,7 @@ class DefaultHomepagePreset implements ContentPreset
 
 
         $this->setupImageBoxWidget($this->preset->createWidget("Ceres::ImageBoxWidget"));
-        $this->preset->createWidget("Glomer5::ImageListWidget")
+        $this->preset->createWidget("Glomer6::ImageListWidget")
                      ->withSetting("entries", []);
 
 

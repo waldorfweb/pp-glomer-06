@@ -1,11 +1,11 @@
 {
-    "identifier": "Glomer5::ImageListWidget",
+    "identifier": "Glomer6::ImageListWidget",
     "label": "Widget.imageListLabel",
     "previewImageURL": "/images/dia-widgets/footer-image-list.png",
     "type": "static",
     "categories": ["dia"],
     "position": 900,
-    "widgetClass": "Glomer5\\Widgets\\Common\\ImageListWidget",
+    "widgetClass": "Glomer6\\Widgets\\Common\\ImageListWidget",
     "settings": {
         "class": {
             "type": "text",

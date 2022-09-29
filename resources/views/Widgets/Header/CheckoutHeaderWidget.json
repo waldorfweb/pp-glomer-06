@@ -1,11 +1,11 @@
 {
-    "identifier": "Glomer5::CheckoutHeaderWidget",
+    "identifier": "Glomer6::CheckoutHeaderWidget",
     "label": "Widget.checkoutHeader",
     "previewImageURL": "/images/dia-widgets/header-checkout-navbar.png",
     "type": "header",
     "categories": ["dia"],
     "position": 0,
-    "widgetClass": "Glomer5\\Widgets\\Header\\CheckoutHeaderWidget",
+    "widgetClass": "Glomer6\\Widgets\\Header\\CheckoutHeaderWidget",
     "settings": {
         "companyLogoUrl": {
             "type": "file",

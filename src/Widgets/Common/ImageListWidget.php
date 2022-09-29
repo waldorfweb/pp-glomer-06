@@ -1,12 +1,12 @@
 <?php
 
-namespace Glomer5\Widgets\Common;
+namespace Glomer6\Widgets\Common;
 
 use Ceres\Widgets\Helper\BaseWidget;
 
 class ImageListWidget extends BaseWidget
 {
-    protected $template = "Glomer5::Widgets.Common.ImageListWidget";
+    protected $template = "Glomer6::Widgets.Common.ImageListWidget";
 
     protected function getTemplateData($widgetSettings, $isPreview)
     {

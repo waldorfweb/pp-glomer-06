@@ -1,10 +1,10 @@
 {
     "version": "5.0.51",
     "license": "AGPL-3.0",
-    "name": "Glomer5",
+    "name": "Glomer6",
     "marketplaceName": {
-        "de": "Glomer5",
-        "en": "Glomer5"
+        "de": "Glomer6",
+        "en": "Glomer6"
     },
     "pluginIcon": "icon_plugin_xs.png",
     "authorIcon": "icon_author_xs.png",
@@ -15,7 +15,7 @@
         "de": "Waldorf theme 02 für Ceres.",
         "en": "Waldorf theme 02 for Ceres."
     },
-    "namespace": "Glomer5",
+    "namespace": "Glomer6",
     "author": "Universnatur GmbH",
     "keywords": [
         "plentymarkets",
@@ -37,5 +37,5 @@
         "name": "Head: Google Tag Manager",
         "description": "Add data layer before google tag manager"
     }],
-    "serviceProvider": "Glomer5\\Providers\\ThemeServiceProvider"
+    "serviceProvider": "Glomer6\\Providers\\ThemeServiceProvider"
 }

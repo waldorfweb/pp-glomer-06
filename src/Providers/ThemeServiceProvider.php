@@ -1,5 +1,5 @@
 <?php
-namespace Glomer5\Providers;
+namespace Glomer6\Providers;
 use Plenty\Modules\ContentCache\Contracts\ContentCacheQueryParamsRepositoryContract;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
@@ -13,7 +13,7 @@ use IO\Helper\ComponentContainer;
 
 /**
  * Class ThemeServiceProvider
- * @package Glomer5\Providers
+ * @package Glomer6\Providers
  */
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -23,13 +23,13 @@ class ThemeServiceProvider extends ServiceProvider
     }
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
-        $enabledOverrides = explode(", ", $config->get("Glomer5.templates.override"));
+        $enabledOverrides = explode(", ", $config->get("Glomer6.templates.override"));
 
         if (in_array("add_style", $enabledOverrides) || in_array("all", $enabledOverrides)) {
 
             $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
                 // The style is imported in the <head> on the PageDesign.twig of Ceres
-                $container->addStyleTemplate('Glomer5::AddStyle');
+                $container->addStyleTemplate('Glomer6::AddStyle');
             }, self::PRIORITY);
 
         }
@@ -40,7 +40,7 @@ class ThemeServiceProvider extends ServiceProvider
             $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
             {
                 // The script is imported in the Footer.twig of Ceres
-                $container->addScriptTemplate('Glomer5::AddScript');
+                $container->addScriptTemplate('Glomer6::AddScript');
             }, self::PRIORITY);
 
         }
@@ -54,19 +54,19 @@ class ThemeServiceProvider extends ServiceProvider
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
             if (in_array("head", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('head', 'Glomer5::PageDesign.Partials.Head');
+                $partial->set('head', 'Glomer6::PageDesign.Partials.Head');
             }
             if (in_array("header", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('header', 'Glomer5::PageDesign.Partials.Header.Header');
+                $partial->set('header', 'Glomer6::PageDesign.Partials.Header.Header');
             }
             if (in_array("page_design", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('page-design', 'Glomer5::PageDesign.PageDesign');
+                $partial->set('page-design', 'Glomer6::PageDesign.PageDesign');
             }
             if (in_array("footer", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $partial->set('footer', 'Glomer5::PageDesign.Partials.Footer');
+                $partial->set('footer', 'Glomer6::PageDesign.Partials.Footer');
             }
             return false;
         }, self::PRIORITY);
@@ -75,7 +75,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Homepage.Homepage');
+                $container->setTemplate('Glomer6::Homepage.Homepage');
                 return false;
             }, self::PRIORITY);
         }
@@ -84,7 +84,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Category.Content.CategoryContent');
+                $container->setTemplate('Glomer6::Category.Content.CategoryContent');
                 return false;
             }, self::PRIORITY);
         }
@@ -93,21 +93,21 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Category.Item.CategoryItem');
+                $container->setTemplate('Glomer6::Category.Item.CategoryItem');
                 return false;
             }, self::PRIORITY);
         }
         // Override item card
         $dispatcher->listen("IO.Resources.Import", function(ResourceContainer $container)
         {
-            $container->addScriptTemplate('Glomer5::ItemList.Components.CategoryItem');
+            $container->addScriptTemplate('Glomer6::ItemList.Components.CategoryItem');
         },0);
         // Override shopping cart
         if (in_array("basket", $enabledOverrides) || in_array("all", $enabledOverrides))
         {
             $dispatcher->listen('IO.tpl.basket', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Basket.Basket');
+                $container->setTemplate('Glomer6::Basket.Basket');
                 return false;
             }, self::PRIORITY);
         }
@@ -116,7 +116,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Checkout.Checkout');
+                $container->setTemplate('Glomer6::Checkout.Checkout');
                 return false;
             }, self::PRIORITY);
         }
@@ -125,7 +125,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.confirmation', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Checkout.OrderConfirmation');
+                $container->setTemplate('Glomer6::Checkout.OrderConfirmation');
                 return false;
             }, self::PRIORITY);
         }
@@ -134,7 +134,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.login', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Customer.Login');
+                $container->setTemplate('Glomer6::Customer.Login');
                 return false;
             }, self::PRIORITY);
         }
@@ -143,7 +143,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.register', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Customer.Register');
+                $container->setTemplate('Glomer6::Customer.Register');
                 return false;
             }, self::PRIORITY);
         }
@@ -152,7 +152,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Item.SingleItemWrapper');
+                $container->setTemplate('Glomer6::Item.SingleItemWrapper');
                 return false;
             }, self::PRIORITY);
         }
@@ -161,7 +161,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.search', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::ItemList.ItemListView');
+                $container->setTemplate('Glomer6::ItemList.ItemListView');
                 return false;
             }, self::PRIORITY);
         }
@@ -170,7 +170,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.my-account', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::MyAccount.MyAccount');
+                $container->setTemplate('Glomer6::MyAccount.MyAccount');
                 return false;
             }, self::PRIORITY);
         }
@@ -179,7 +179,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.wish-list', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::WishList.WishListView');
+                $container->setTemplate('Glomer6::WishList.WishListView');
                 return false;
             }, self::PRIORITY);
         }
@@ -188,7 +188,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.contact', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Customer.Contact');
+                $container->setTemplate('Glomer6::Customer.Contact');
                 return false;
             }, self::PRIORITY);
         }
@@ -197,7 +197,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.order.return', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::OrderReturn.OrderReturnView');
+                $container->setTemplate('Glomer6::OrderReturn.OrderReturnView');
                 return false;
             }, self::PRIORITY);
         }
@@ -206,7 +206,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.order.return.confirmation', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::OrderReturn.OrderReturnConfirmation');
+                $container->setTemplate('Glomer6::OrderReturn.OrderReturnConfirmation');
                 return false;
             }, self::PRIORITY);
         }
@@ -215,7 +215,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.cancellation-rights', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.CancellationRights');
+                $container->setTemplate('Glomer6::StaticPages.CancellationRights');
                 return false;
             }, self::PRIORITY);
         }
@@ -224,7 +224,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.cancellation-form', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.CancellationForm');
+                $container->setTemplate('Glomer6::StaticPages.CancellationForm');
                 return false;
             }, self::PRIORITY);
         }
@@ -233,7 +233,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.legal-disclosure', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.LegalDisclosure');
+                $container->setTemplate('Glomer6::StaticPages.LegalDisclosure');
                 return false;
             }, self::PRIORITY);
         }
@@ -242,7 +242,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.privacy-policy', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.PrivacyPolicy');
+                $container->setTemplate('Glomer6::StaticPages.PrivacyPolicy');
                 return false;
             }, self::PRIORITY);
         }
@@ -251,7 +251,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.terms-conditions', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.TermsAndConditions');
+                $container->setTemplate('Glomer6::StaticPages.TermsAndConditions');
                 return false;
             }, self::PRIORITY);
         }
@@ -260,7 +260,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.item-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.ItemNotFound');
+                $container->setTemplate('Glomer6::StaticPages.ItemNotFound');
                 return false;
             }, self::PRIORITY);
         }
@@ -269,7 +269,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.page-not-found', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::StaticPages.PageNotFound');
+                $container->setTemplate('Glomer6::StaticPages.PageNotFound');
                 return false;
             }, self::PRIORITY);
         }
@@ -278,18 +278,18 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen('IO.tpl.newsletter.opt-out', function (TemplateContainer $container)
             {
-                $container->setTemplate('Glomer5::Newsletter.NewsletterOptOut');
+                $container->setTemplate('Glomer6::Newsletter.NewsletterOptOut');
                 return false;
             }, self::PRIORITY);
         }
 
-        $enabledResultFields = explode(", ", $config->get("Glomer5.result_fields.override"));
+        $enabledResultFields = explode(", ", $config->get("Glomer6.result_fields.override"));
         // Override auto complete list item result fields
         if (in_array("auto_complete_list_item", $enabledResultFields) || in_array("all", $enabledResultFields))
         {
             $dispatcher->listen( 'IO.ResultFields.AutoCompleteListItem', function(ResultFieldTemplate $templateContainer)
             {
-                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_AUTOCOMPLETE_ITEM_LIST, 'Glomer5::ResultFields.AutoCompleteListItem');
+                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_AUTOCOMPLETE_ITEM_LIST, 'Glomer6::ResultFields.AutoCompleteListItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -298,7 +298,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen( 'IO.ResultFields.BasketItem', function(ResultFieldTemplate $templateContainer)
             {
-                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_BASKET_ITEM, 'Glomer5::ResultFields.BasketItem');
+                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_BASKET_ITEM, 'Glomer6::ResultFields.BasketItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -307,7 +307,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen( 'IO.ResultFields.CategoryTree', function(ResultFieldTemplate $templateContainer)
             {
-                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_CATEGORY_TREE, 'Glomer5::ResultFields.CategoryTree');
+                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_CATEGORY_TREE, 'Glomer6::ResultFields.CategoryTree');
                 return false;
             }, self::PRIORITY);
         }
@@ -317,7 +317,7 @@ class ThemeServiceProvider extends ServiceProvider
 
         if (in_array('list_item', $enabledResultFields) || in_array('all', $enabledResultFields))
         {
-            $resultFieldTemplate->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM, 'Glomer5::ResultFields.ListItem');
+            $resultFieldTemplate->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM, 'Glomer6::ResultFields.ListItem');
         }
 
         // Override single item view result fields
@@ -325,7 +325,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             $dispatcher->listen( 'IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
             {
-                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_SINGLE_ITEM, 'Glomer5::ResultFields.SingleItem');
+                $templateContainer->setTemplate(ResultFieldTemplate::TEMPLATE_SINGLE_ITEM, 'Glomer6::ResultFields.SingleItem');
                 return false;
             }, self::PRIORITY);
         }
@@ -334,7 +334,7 @@ class ThemeServiceProvider extends ServiceProvider
         {
             if ($container->getOriginComponentTemplate()=='Ceres::Customer.Components.UserLoginHandler')
             {
-                $container->setNewComponentTemplate('Glomer5::Customer.Components.UserLoginHandler');
+                $container->setNewComponentTemplate('Glomer6::Customer.Components.UserLoginHandler');
             }
         }, self::PRIORITY);
 

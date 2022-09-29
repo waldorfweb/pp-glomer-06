@@ -1,11 +1,11 @@
 <?php
 
-namespace Glomer5\Widgets\Header;
+namespace Glomer6\Widgets\Header;
 
 use Ceres\Widgets\Helper\BaseWidget;
 
 class HeaderWidget extends BaseWidget
 {
 
-    protected $template = "Glomer5::Widgets.Header.HeaderWidget";
+    protected $template = "Glomer6::Widgets.Header.HeaderWidget";
 }
