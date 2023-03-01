@@ -17913,24 +17913,24 @@ div[id^=maximized-trustbadge-]:hover {
 }
 
 /*
-    .single .row .col .widget-two-col.mt-5{
-        display: none;
-    }
+  .single .row .col .widget-two-col.mt-5{
+      display: none;
+  }
 
-    .single .row .col .widget > .widget-tab.mt-5.mb-5{
-        display: none;
-    }
-    .single .row .col > div div:nth-child(3){
-        display: none;
-    }
-    .single .cmp-product-thumb .thumb-content{
-        display: block !important;
-    }
+  .single .row .col .widget > .widget-tab.mt-5.mb-5{
+      display: none;
+  }
+  .single .row .col > div div:nth-child(3){
+      display: none;
+  }
+  .single .cmp-product-thumb .thumb-content{
+      display: block !important;
+  }
 
-    .single .widget-two-col.widget-tab.mt-5{
-        display: block;
-    }
-    */
+  .single .widget-two-col.widget-tab.mt-5{
+      display: block;
+  }
+  */
 .cmp-product-thumb .prices {
   margin: 10px 0 !important;
   display: block;
@@ -17940,24 +17940,24 @@ div[id^=maximized-trustbadge-]:hover {
 }
 
 /*
-    .single .row .col .widget-two-col.mt-5{
-        display: none;
-    }
+  .single .row .col .widget-two-col.mt-5{
+      display: none;
+  }
 
-    .single .row .col > div div:nth-child(3){
-        display: none;
-    }
+  .single .row .col > div div:nth-child(3){
+      display: none;
+  }
 
-    .single .widget-two-col.widget-tab.mt-5{
-        display: block;
-    }
-    */
+  .single .widget-two-col.widget-tab.mt-5{
+      display: block;
+  }
+  */
 /* .single .row .col .widget-two-col:nth-child(1),.single .row .col .widget-two-col:nth-child(2), .single .row .col .widget:nth-child(3){
-        display: none;
-    } */
+      display: none;
+  } */
 /* .single .row .col .widget-two-col:nth-child(1),.single .row .col .widget-two-col:nth-child(2), .single .row .col .widget:nth-child(3){
-        display: none;
-    } */
+      display: none;
+  } */
 /* bugfix mobile */
 @media (max-width: 576px) {
   .item-details__showItem {
@@ -18755,8 +18755,8 @@ ul li ul li a.nav-link {
 }
 
 /*
-      Ceres 5 updates	
-      */
+    Ceres 5 updates	
+    */
 body {
   font-size: 16px;
 }
@@ -19574,8 +19574,8 @@ nav.navbar .container-max > div.row {
   }
 }
 /* .dia-footer__row {
-        background: rgba(254,230,204,0.98);
-    } */
+      background: rgba(254,230,204,0.98);
+  } */
 .widget-legal-information {
   margin-top: 4rem !important;
 }
